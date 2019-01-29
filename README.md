@@ -39,3 +39,4 @@ A Text strings with the Placeholder text, as following :
 
     > Note : for each Slide you have to manually add this funciton in order to enable it for that slide.
 
+For Official Library's documentation please Visit [PHPPresentation Docs](https://github.com/PHPOffice/PHPPresentation)
