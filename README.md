@@ -1,41 +1,29 @@
 # PHP-Presentation-Custom
 
-The plugin is an extended version of the PHPPresentation Library which enables you to add SlideNumbers at the bottom of the slide in your desired string.
+The plugin is an extended version of the PHPPresentation Library which enables you to add SlideNumbers at the top left of the slide.
 
 ### Usage Instruction
 The function that expands the functionality is 
 
-     addSlideNumber($slideIndex, $textString);
+     addSlideNumber($slideObj);
 
-You can use the getSlideIndex() function to get the slide number for the 1st argument.
+You must use the slide object you are using to add shapes or drawings etc.
 
 **EXAMPLE** 
 
      $slide2 = $objPHPPowerPoint->createSlide();
-     $slideIndex = $objPHPPowerPoint->getIndex($slide2);
-     $objPHPPowerPoint->addSlideNumber($slideIndex, 'Slide {{curSlide}} of {{totalSlide}}');
+     $objPHPPowerPoint->addSlideNumber($slide2);
 
 ### Arguments
-The addSlideNumber() accepts two parameters and both are required in order to make it work. The details are as follows: 
+The addSlideNumber() accepts one parameter and it is required in order to make it work. The details are as follows: 
 
-       Arg 1 : $slideIndex 
-       Arg 2 : $textString
+       Arg 1 : $Slide 
 
 **$SlideIndex (Required)**
 
-The Number of the Slide, You can get it by the following function too:
-     getSlideIndex();
+The Slide object which you have used to create the slide.
 
-**Text String (Required)**
 
-A Text strings with the Placeholder text, as following :
-     {{totalSlide}} : TO show the total number of slides
-     {{curSlide}}  : To show the current slide number
-
-**Example**
-
-       $textString = 'Slide {{curSlide}} of {{totalSlide}}'
-       // will output "Slide 1 of 6"
 
      Note : for each Slide you have to manually add this funciton in order to enable it for that slide.
 
