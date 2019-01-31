@@ -2,7 +2,7 @@
 
 The plugin is an extended version of the PHPPresentation Library which enables you to add SlideNumbers at the top left of the slide.
 
-### Usage Instruction
+### Usage Instructions
 The function that expands the functionality is 
 
      addSlideNumber($slideObj);
