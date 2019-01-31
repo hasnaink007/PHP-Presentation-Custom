@@ -20,6 +20,9 @@ namespace PhpOffice\PhpPresentation;
 use PhpOffice\PhpPresentation\Slide;
 use PhpOffice\PhpPresentation\Slide\Iterator;
 use PhpOffice\PhpPresentation\Slide\SlideMaster;
+use PhpOffice\PhpPresentation\Shape\Placeholder;
+use PhpOffice\PhpPresentation\Style\Alignment;
+
 
 /**
  * PhpPresentation
@@ -168,28 +171,18 @@ class PhpPresentation
      * Customized Function for slide numbering
      *  @return Int 
      */
-    public function addSlideNumber($slideIndex,$textString) {
+    public function addSlideNumber($slide) {
         
-        $slide = $this->getSlide($slideIndex);
-
-        $set_fc = $slide->createRichTextShape()
-                        ->setHeight(40)
+        $fshape = $slide->createRichTextShape()
+                        ->setHeight(50)
                         ->setWidth(600)
-                        ->setOffsetX(170)
-                        ->setOffsetY(650);
+                        ->setOffsetX(250)
+                        ->setOffsetY(600);
+        
+        
+         $fshape->setPlaceHolder(new Placeholder(Placeholder::PH_TYPE_SLIDENUM));
 
-        $allslides = $this->getSlideCount();
-
-        $slidenumber = $slideIndex + 1;
-
-        $textString = str_replace('{{totalSlide}}',$allslides,$textString);
-        $textString = str_replace('{{curSlide}}',$slidenumber,$textString);
-
-        $setFooterText = $set_fc->createTextRun($textString);
-
-        $setFooterText->getFont()->setBold(true)
-                         ->setSize(12);
-
+        
             return 1;
     }  
 
